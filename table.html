@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>jQuery Dynamically Add or Delete Table Rows</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style>
+table.TableAddDelete{
+	width: 100%;
+	border-collapse: collapse;
+	margin-top:20px;
+}
+table.TableAddDelete th, table.TableAddDelete td{
+	border: 1px solid #cdcdcd;
+	padding: 7px;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$('.btnrowAddDelete').click(function(){
+  		var txtTeamAddDelete = $('.txtTeamAddDelete').val();
+  		var txtCricketerAddDelete = $('.txtCricketerAddDelete').val();
+  		var txtScoreAddDelete = $('.txtScoreAddDelete').val();
+  		$('.TableAddDelete tbody').append("<tr><td>"+txtTeamAddDelete+"</td><td>"+txtCricketerAddDelete+"</td><td>"+txtScoreAddDelete+"</td><td><button type='button' class='btndeleterowadded btn'>x</button></td></tr>");
+	});
+  	$(document).on('click', 'button.btndeleterowadded', function(){
+     	$(this).closest('tr').remove();
+     	return false;
+ 	});
+});
+</script>
+</head>
+<body>
+<h2>jQuery Dynamically Add or Delete Table Rows</h2>
+<p>Fill below form and click 'Add New Row' button to add new table row. Also, you can click the cross(X) sign button to remove the unwanted rows of a table.</p>
+<form>
+	
+  	
+  	
+  	
+</form>
+<table class="TableAddDelete">
+	<thead>
+        <tr>                                  
+    		<th>Team Name</th>
+        	<th>Cricketer Name</th>
+        	<th>Score</th> 
+            <th><button type="button" class="btnrowAddDelete">Add New Row</button></th>
+        </tr> 
+        
+
+    </thead>    
+  	<tbody> 
+  	<tr>                                  
+    		<th><input type="text" class="txtTeamAddDelete" placeholder="Enter Team Name"></th>
+        	<th><input type="text" class="txtCricketerAddDelete" placeholder="Enter Cricketer Name"></th>
+        	<th><input type="text" class="txtScoreAddDelete" placeholder="Enter Score"></th> 
+            <th><input type="text" ></th>
+        </tr>                                  
+    </tbody>
+</table>
+</body>
+</html>        
